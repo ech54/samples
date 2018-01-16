@@ -4,9 +4,163 @@
   <artifactId>samples-junit5</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   
+  
+   	<dependencies>
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-commons</artifactId>
+  		</dependency>
+   		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-console</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-engine</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-launcher</artifactId>
+  		</dependency>  
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-runner</artifactId>
+  		</dependency>  
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-suite-api</artifactId>
+  		</dependency>  
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-surefire-provider</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.junit.jupiter</groupId>
+  			<artifactId>junit-jupiter-api</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.junit.jupiter</groupId>
+  			<artifactId>junit-jupiter-engine</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.junit.jupiter</groupId>
+  			<artifactId>junit-jupiter-params</artifactId>
+  		</dependency>
+   		<dependency>
+  			<groupId>org.junit.jupiter</groupId>
+  			<artifactId>junit-jupiter-migrationsupport</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.junit.vintage</groupId>
+  			<artifactId>junit-vintage-engine</artifactId>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.slf4j</groupId>
+  			<artifactId>slf4j-api</artifactId>
+  		</dependency>  				  		 		
+  	</dependencies>
+  
+
+  <dependencyManagement>
+  	<dependencies>
+  		<!-- Platform dependencies -->
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-commons</artifactId>
+  			<version>1.0.3</version>
+  		</dependency>
+   		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-console</artifactId>
+  			<version>1.0.3</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-engine</artifactId>
+  			<version>1.0.3</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-launcher</artifactId>
+  			<version>1.0.2</version>
+  		</dependency>  
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-runner</artifactId>
+  			<version>1.0.2</version>
+  		</dependency>  
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-suite-api</artifactId>
+  			<version>1.0.2</version>
+  		</dependency>  
+  		<dependency>
+  			<groupId>org.junit.platform</groupId>
+  			<artifactId>junit-platform-surefire-provider</artifactId>
+  			<version>1.0.2</version>
+  		</dependency>
+  		
+  		<!-- Jupiter dependencies -->
+  		<dependency>
+  			<groupId>org.junit.jupiter</groupId>
+  			<artifactId>junit-jupiter-api</artifactId>
+  			<version>5.0.2</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.junit.jupiter</groupId>
+  			<artifactId>junit-jupiter-engine</artifactId>
+  			<version>5.0.2</version>
+  		</dependency>
+  		<dependency>
+  			<groupId>org.junit.jupiter</groupId>
+  			<artifactId>junit-jupiter-params</artifactId>
+  			<version>5.0.2</version>
+  		</dependency>
+   		<dependency>
+  			<groupId>org.junit.jupiter</groupId>
+  			<artifactId>junit-jupiter-migrationsupport</artifactId>
+  			<version>5.0.2</version>
+  		</dependency>
+  		
+  		<!-- Vintage for old Junit dependencies -->
+  		<dependency>
+  			<groupId>org.junit.vintage</groupId>
+  			<artifactId>junit-vintage-engine</artifactId>
+  			<version>4.12.3</version>
+  		</dependency>
+  		
+  		<!-- Other -->
+  		<dependency>
+  			<groupId>org.slf4j</groupId>
+  			<artifactId>slf4j-api</artifactId>
+  			<version>1.7.25</version>
+  		</dependency>  				  		 		
+  	</dependencies>
+  </dependencyManagement>
 
   <build>
-  	
+  	<plugins>
+		<plugin>
+			<artifactId>maven-surefire-plugin</artifactId>
+			<version>2.19.1</version>
+			<dependencies>
+				<dependency>
+					<groupId>org.junit.platform</groupId>
+					<artifactId>junit-platform-surefire-provider</artifactId>
+					<version>1.0.3</version>
+				</dependency>
+				<dependency>
+					<groupId>org.junit.jupiter</groupId>
+					<artifactId>junit-jupiter-engine</artifactId>
+					<version>5.0.3</version>
+				</dependency>
+			</dependencies>
+		</plugin>
+  		<plugin>
+  			<groupId>org.apache.maven.plugins</groupId>
+  			<artifactId>maven-compiler-plugin</artifactId>
+  		</plugin>
+  	</plugins>	
   	<pluginManagement>
   		<plugins>
   			<plugin>
