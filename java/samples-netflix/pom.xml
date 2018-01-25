@@ -150,6 +150,6 @@
    	<module>netflix-user</module>
    	<module>netflix-userdetails</module>
    	<module>netflix-roles</module>
-   	<module>netflix-eureka-server</module>
+   	<!-- <module>netflix-eureka-server</module> -->
    </modules>
 </project>
