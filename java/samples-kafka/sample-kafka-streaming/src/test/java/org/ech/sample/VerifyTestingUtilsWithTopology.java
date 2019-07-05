@@ -11,14 +11,15 @@ import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.Topology;
 import org.apache.kafka.streams.TopologyTestDriver;
 import org.apache.kafka.streams.test.ConsumerRecordFactory;
+import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class VerifyTestingUtils {
+public class VerifyTestingUtilsWithTopology {
 	
-	private static final Logger LOGGER = LoggerFactory.getLogger(VerifyTestingUtils.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(VerifyTestingUtilsWithTopology.class);
 	
 	final ConsumerRecordFactory<String, Long> consumerFactory = new ConsumerRecordFactory<String, Long>(
 													"topic-in", new StringSerializer(), new LongSerializer());
@@ -35,6 +36,11 @@ public class VerifyTestingUtils {
 		config.put(StreamsConfig.APPLICATION_ID_CONFIG, "test");
 		config.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "dummy:1234");
 		driver = new TopologyTestDriver(topology, config);
+	}
+	
+	@After
+	public void after() {
+		driver.close();
 	}
 	
 	@Test
